@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "46260581131",
+    "project_id": "ansaralsunna-2022",
+    "storage_bucket": "ansaralsunna-2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46260581131:android:5f165396adb100dff7a80e",
+        "android_client_info": {
+          "package_name": "dev_ali_hassan.app.marad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46260581131-nl85si25m4qved1atcmah2msl5r7em7k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "dev_ali_hassan.app.marad",
+            "certificate_hash": "ee02f361e365a3e629442b6c88bbca7ec5c8257e"
+          }
+        },
+        {
+          "client_id": "46260581131-miahgvbnd0e6u8877264lu16h8euh5iv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiKnjvxxnB4EvQ0ynf_YeVwizb9DDuOdM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46260581131-miahgvbnd0e6u8877264lu16h8euh5iv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
