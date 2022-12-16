@@ -97,10 +97,14 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
 
     // material design 3
-    implementation 'com.google.android.material:material:1.8.0-beta01'
+    implementation 'com.google.android.material:material:1.7.0-rc01'
+
+    // otp view
+//    implementation 'com.github.criminact:OTPView:1.0.1'
 }
 
 // Allow references to generated code
 kapt {
     correctErrorTypes true
 }
+

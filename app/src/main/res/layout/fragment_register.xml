@@ -6,62 +6,89 @@
     android:layout_height="match_parent"
     tools:context=".ui.register.RegisterViewModel">
 
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userPasswordET"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="password"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userEmailET" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_3">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userEmailET"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPasswordET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:minHeight="48dp" />
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="E-mail (optional)"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userPhoneNumberEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_2">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userPhoneNumberEditText"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userEmailET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail (optional)"
+            android:minHeight="48dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Phone Number"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userNameEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_1">
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/userNameEditText"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userPhoneNumberEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:minHeight="48dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_1"
         android:layout_width="0dp"
-        style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Name"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appLogoImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/appLogoImageView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userNameEditText"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:hint="Name"
+            android:minHeight="48dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <ImageView
         android:id="@+id/appLogoImageView"

@@ -12,7 +12,7 @@ import javax.inject.Inject
 class LoginViewModel @Inject constructor() : ViewModel() {
 
 
-    private val loginViewModelChannel = Channel<LoginEvents>()
+   private val  loginViewModelChannel = Channel<LoginEvents>()
 
     // receive the channel as a flow to collect the orders in our login fragment
     val loginViewModelFlow = loginViewModelChannel.receiveAsFlow()
@@ -26,15 +26,25 @@ class LoginViewModel @Inject constructor() : ViewModel() {
                 loginViewModelChannel.send(LoginEvents.FillEmptyFieldPassword("please, enter your password"))
             else {
                 // saved that the user is authenticated
-                /*authenticationManager.updateUserAuthState(true)
-                loginViewModelChannel.send(LoginEvents.NavigateToQuestionsScreen)*/
+                // sign the user in
+                // navigate to home screen fragment
+                loginViewModelChannel.send(LoginEvents.SignIn)
             }
         }
 
 
     }
 
+    fun userClickRegister() {
+        viewModelScope.launch {
+            loginViewModelChannel.send(LoginEvents.NavigateToRegisterScreen)
+        }
+    }
+
     sealed class LoginEvents {
+        object NavigateToRegisterScreen : LoginEvents()
+        object SignIn : LoginViewModel.LoginEvents()
+
         class FillEmptyFieldPhoneNumber(val emptyField: String) : LoginEvents()
         class FillEmptyFieldPassword(val emptyField: String) : LoginEvents()
     }

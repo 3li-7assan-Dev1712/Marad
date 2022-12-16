@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
+import dev_ali_hassan.app.marad.R
 import dev_ali_hassan.app.marad.databinding.FragmentLoginBinding
 import kotlinx.coroutines.flow.collect
 
@@ -35,6 +37,13 @@ class LoginFragment : Fragment() {
                     is LoginViewModel.LoginEvents.FillEmptyFieldPassword -> {
                         binding.editTextTextPassword.error = event.emptyField
                     }
+
+                    LoginViewModel.LoginEvents.NavigateToRegisterScreen -> {
+                        findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+                    }
+                    LoginViewModel.LoginEvents.SignIn -> {
+                        // navigate to home screen
+                    }
                 }
             }
         }
@@ -44,6 +53,9 @@ class LoginFragment : Fragment() {
                 binding.editTextPhoneNumber.text.toString(),
                 binding.editTextTextPassword.text.toString()
             )
+        }
+        binding.registerTv.setOnClickListener {
+            viewModel.userClickRegister()
         }
         return binding.root
     }
