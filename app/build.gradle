@@ -93,6 +93,11 @@ dependencies {
     // firebase
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
     implementation 'com.google.firebase:firebase-analytics-ktx'
+    // authentication
+    implementation 'com.google.firebase:firebase-auth-ktx'
+
+    // material design 3
+    implementation 'com.google.android.material:material:1.8.0-beta01'
 }
 
 // Allow references to generated code
