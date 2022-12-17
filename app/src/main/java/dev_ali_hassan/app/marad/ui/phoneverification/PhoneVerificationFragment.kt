@@ -24,7 +24,7 @@ class PhoneVerificationFragment : Fragment() {
 
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()
 
-    val callbacks: OnVerificationStateChangedCallbacks =
+    private val callbacks: OnVerificationStateChangedCallbacks =
         object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
@@ -39,8 +39,10 @@ class PhoneVerificationFragment : Fragment() {
 
                 if (e is FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
+                    Log.d(TAG, "onVerificationFailed: invalid cred: ${e.message}")
                 } else if (e is FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
+                    Log.d(TAG, "onVerificationFailed: too many requests from your phone!")
                 }
 
                 // Show a message and update the UI
