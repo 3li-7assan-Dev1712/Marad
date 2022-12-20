@@ -14,7 +14,7 @@ import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCall
 import dagger.hilt.android.AndroidEntryPoint
 import dev_ali_hassan.app.marad.databinding.FragmentPhoneVerificationBinding
 import java.util.concurrent.TimeUnit
-
+////AIzaSyA0XZpnhcBI6eao5D7q8fR6FHF5vePjuPE
 @AndroidEntryPoint
 class PhoneVerificationFragment : Fragment() {
 
@@ -29,6 +29,7 @@ class PhoneVerificationFragment : Fragment() {
 
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 Log.d(TAG, "onVerificationCompleted:$credential")
+                Log.d(TAG, "onVerificationCompleted: sms code: " + credential.smsCode)
                 signInWithPhoneAuthCredential(credential)
             }
 
