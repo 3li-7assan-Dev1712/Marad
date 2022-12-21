@@ -45,6 +45,10 @@ class LoginFragment : Fragment() {
                         // navigate to home screen
                         findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                     }
+                    LoginViewModel.LoginEvents.NavigateToHomeScreen -> {
+                        findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    }
+
                 }
             }
         }
