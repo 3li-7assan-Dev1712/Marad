@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/launcherFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -40,16 +40,4 @@
         android:name="dev_ali_hassan.app.marad.ui.homescreen.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
-    <fragment
-        android:id="@+id/launcherFragment"
-        android:name="dev_ali_hassan.app.marad.ui.launcherscreen.LauncherFragment"
-        android:label="fragment_launcher"
-        tools:layout="@layout/fragment_launcher" >
-        <action
-            android:id="@+id/action_launcherFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_launcherFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
 </navigation>

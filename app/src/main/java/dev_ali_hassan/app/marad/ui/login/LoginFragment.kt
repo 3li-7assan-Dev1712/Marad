@@ -20,6 +20,16 @@ class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by viewModels()
 
+    /*override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        lifecycleScope.launchWhenCreated {
+            viewModel.authenticationManager.authenticationFlow.collect {
+                if (it) {
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                }
+            }
+        }
+    }*/
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

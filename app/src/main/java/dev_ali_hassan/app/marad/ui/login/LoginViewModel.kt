@@ -1,22 +1,26 @@
 package dev_ali_hassan.app.marad.ui.login
 
+import android.content.Context
+import android.util.Log
+import androidx.core.content.edit
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dev_ali_hassan.app.marad.utilities.AuthenticationManager
 import kotlinx.coroutines.channels.Channel
-import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    val authenticationManager: AuthenticationManager
+    val authenticationManager: AuthenticationManager,
+    @ApplicationContext val context: Context
 ) : ViewModel() {
 
 
-   private val  loginViewModelChannel = Channel<LoginEvents>()
+    private val loginViewModelChannel = Channel<LoginEvents>()
 
     // receive the channel as a flow to collect the orders in our login fragment
     val loginViewModelFlow = loginViewModelChannel.receiveAsFlow()
@@ -34,6 +38,17 @@ class LoginViewModel @Inject constructor(
                 viewModelScope.launch {
                     authenticationManager.updateUserAuthState(userIsAuthenticated = true)
                 }
+                context.getSharedPreferences("auth", Context.MODE_PRIVATE).edit {
+                    this.putBoolean("isSignIn", true)
+                    this.commit()
+                }
+                Log.d(
+                    "LoginViewModel",
+                    "loginButtonClick: auth now is: " + context.getSharedPreferences(
+                        "auth",
+                        Context.MODE_PRIVATE
+                    ).getBoolean("isSignIn", false)
+                )
                 // navigate to home screen fragment
                 loginViewModelChannel.send(LoginEvents.SignIn)
             }
@@ -41,6 +56,7 @@ class LoginViewModel @Inject constructor(
 
 
     }
+    // should navigate to home screen fragment
 
     fun userClickRegister() {
         viewModelScope.launch {

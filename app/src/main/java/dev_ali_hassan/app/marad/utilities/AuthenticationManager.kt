@@ -7,8 +7,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.asLiveData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.last
 import kotlinx.coroutines.flow.map
 import java.io.IOException
 import javax.inject.Inject
@@ -22,6 +24,8 @@ class AuthenticationManager @Inject constructor(@ApplicationContext context: Con
 
     private val datastore: DataStore<Preferences> = context.dataStore
 
+
+
     val authenticationFlow = datastore.data
         .catch {
             if (it is IOException) {
@@ -31,6 +35,8 @@ class AuthenticationManager @Inject constructor(@ApplicationContext context: Con
             val userIsAuthenticated = preferences[DataStoreKeys.AUTH_KEY] ?: false
             userIsAuthenticated
         }
+
+    val userAuthLiveData = authenticationFlow.asLiveData()
 
     suspend fun updateUserAuthState(userIsAuthenticated: Boolean) {
         datastore.edit { preferences ->
