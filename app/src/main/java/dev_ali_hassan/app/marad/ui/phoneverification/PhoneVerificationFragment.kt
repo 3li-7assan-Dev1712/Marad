@@ -14,6 +14,7 @@ import com.google.firebase.auth.PhoneAuthProvider.OnVerificationStateChangedCall
 import dagger.hilt.android.AndroidEntryPoint
 import dev_ali_hassan.app.marad.databinding.FragmentPhoneVerificationBinding
 import java.util.concurrent.TimeUnit
+
 ////AIzaSyA0XZpnhcBI6eao5D7q8fR6FHF5vePjuPE
 @AndroidEntryPoint
 class PhoneVerificationFragment : Fragment() {
@@ -30,6 +31,11 @@ class PhoneVerificationFragment : Fragment() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 Log.d(TAG, "onVerificationCompleted:$credential")
                 Log.d(TAG, "onVerificationCompleted: sms code: " + credential.smsCode)
+                Toast.makeText(
+                    requireContext(),
+                    "Done, Code is: ${credential.smsCode}",
+                    Toast.LENGTH_LONG
+                ).show()
                 signInWithPhoneAuthCredential(credential)
             }
 
@@ -37,7 +43,7 @@ class PhoneVerificationFragment : Fragment() {
                 // This callback is invoked in an invalid request for verification is made,
                 // for instance if the the phone number format is not valid.
                 Log.w(TAG, "onVerificationFailed: msg: ${e.message}", e)
-
+                Toast.makeText(requireContext(), "Warning: ${e.message}", Toast.LENGTH_LONG).show()
                 if (e is FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     Log.d(TAG, "onVerificationFailed: invalid cred: ${e.message}")

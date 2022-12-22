@@ -8,6 +8,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        debug {
+            storeFile file('C:\\Users\\ALFAFA\\AndroidStudioProjects\\Marad\\app\\ansar_alsuna.jks')
+            storePassword 'alihassan1712'
+            keyAlias 'AnsarAlsunaApps'
+            keyPassword 'alihassan1712'
+        }
+    }
     namespace 'dev_ali_hassan.app.marad'
     compileSdk 32
 
